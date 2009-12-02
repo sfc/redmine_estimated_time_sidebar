@@ -1,8 +1,11 @@
 require 'redmine'
 
-Redmine::Plugin.register :redmine_estimated_hours_sidebar do
-  name 'Redmine Estimated Hours Sidebar plugin'
+# Hooks
+require_dependency 'estimated_time_sidebar_hook'
+
+Redmine::Plugin.register :redmine_estimated_time_sidebar do
+  name 'Redmine Estimated Time Sidebar plugin'
   author 'Kevin Marsh <kmarsh@sfcgraphics.com>'
-  description 'Show the total amount of estimated hours on the issue list sidebar, optionally grouped'
+  description 'Show the total amount of estimated time on the issue list sidebar, optionally grouped'
   version '0.0.1'
 end
