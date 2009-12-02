@@ -18,8 +18,6 @@ module QueryPatch
   end
   
   module InstanceMethods
-    # Wraps the association to get the Deliverable subject.  Needed for the 
-    # Query and filtering
     def issue_sum
       Issue.sum(:estimated_hours, :include => [:status, :project], :conditions => statement)
     rescue ::ActiveRecord::StatementInvalid => e
