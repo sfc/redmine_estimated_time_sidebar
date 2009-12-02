@@ -1,6 +1,7 @@
 require 'redmine'
 
 # Hooks
+require_dependency 'query_patch'
 require_dependency 'estimated_time_sidebar_hook'
 
 Redmine::Plugin.register :redmine_estimated_time_sidebar do
