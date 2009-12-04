@@ -23,6 +23,13 @@ module QueryPatch
     rescue ::ActiveRecord::StatementInvalid => e
       raise StatementInvalid.new(e.message)
     end
+
+    def issue_sum_remaining
+      Issue.sum('estimated_hours * (100 - (done_ratio))/100', :include => [:status, :project], :conditions => statement)
+    rescue ::ActiveRecord::StatementInvalid => e
+      raise StatementInvalid.new(e.message)
+    end
+    
   end
 end
 
